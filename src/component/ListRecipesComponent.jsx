@@ -12,6 +12,7 @@ class ListRecipesComponent extends Component {
             message: null
         }
         this.refreshRecipes = this.refreshRecipes.bind(this)
+        this.deleteRecipeClicked = this.deleteRecipeClicked.bind(this)
     }
 
     componentDidMount() {
@@ -28,10 +29,22 @@ class ListRecipesComponent extends Component {
             )
     }
 
+    deleteRecipeClicked(id) {
+        RecipeDataService.deleteRecipe(INSTRUCTOR, id)
+            .then(
+                response => {
+                    this.setState({ message: `Delete of recipe ${id} successful` })
+                    this.refreshRecipes()
+                }
+            )
+
+    }
+
     render() {
         return (
             <div className="container">
                 <h3>All Recipes</h3>
+                {this.state.message && <div class="alert alert-success">{this.state.message}</div>}
                 <div className="container">
                     <table className="table">
                         <thead>
@@ -39,8 +52,9 @@ class ListRecipesComponent extends Component {
                             <th>Id</th>
                             <th>Name</th>
                             <th>Description</th>
-                            <th>ingredients</th>
-                            <th>instructions</th>
+                            <th>Ingredients</th>
+                            <th>Instructions</th>
+                            <th>Delete</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -53,6 +67,7 @@ class ListRecipesComponent extends Component {
                                         <td>{recipe.description}</td>
                                         <td>{recipe.ingredients}</td>
                                         <td>{recipe.instructions}</td>
+                                        <td><button className="btn btn-warning" onClick={() => this.deleteRecipeClicked(recipe.id)}>Delete</button></td>
                                     </tr>
                             )
                         }
