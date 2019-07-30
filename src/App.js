@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
+import RecipeApp from './component/RecipeApp';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-          Tähän tulee hieno reseptisivu
-      </header>
-    </div>
-  );
+
+class App extends Component {
+    render() {
+        return (
+            <div className="container">
+                <RecipeApp/>
+            </div>
+        );
+    }
 }
 
 export default App;
