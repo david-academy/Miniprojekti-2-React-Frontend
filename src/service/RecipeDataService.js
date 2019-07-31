@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 
-const INSTRUCTOR_API_URL = `http://localhost:8080/reseptit`
+const INSTRUCTOR_API_URL = `http://localhost:8080/`
 
 class RecipeDataService {
 

@@ -12,7 +12,9 @@ class ListRecipesComponent extends Component {
             message: null
         }
         this.refreshRecipes = this.refreshRecipes.bind(this)
+        this.updateRecipeClicked = this.updateRecipeClicked.bind(this)
         this.deleteRecipeClicked = this.deleteRecipeClicked.bind(this)
+        this.addRecipeClicked = this.addRecipeClicked.bind(this)
     }
 
     componentDidMount() {
@@ -29,6 +31,11 @@ class ListRecipesComponent extends Component {
             )
     }
 
+    updateRecipeClicked(id) {
+        console.log('update' + id)
+        this.props.history.push(`/recipes/${id}`)
+    }
+
     deleteRecipeClicked(id) {
         RecipeDataService.deleteRecipe(INSTRUCTOR, id)
             .then(
@@ -37,8 +44,12 @@ class ListRecipesComponent extends Component {
                     this.refreshRecipes()
                 }
             )
-
     }
+
+    addRecipeClicked() {
+        this.props.history.push(`/recipes/-1`)
+    }
+
 
     render() {
         return (
@@ -54,6 +65,7 @@ class ListRecipesComponent extends Component {
                             <th>Description</th>
                             <th>Ingredients</th>
                             <th>Instructions</th>
+                            <th>Update</th>
                             <th>Delete</th>
                         </tr>
                         </thead>
@@ -67,12 +79,16 @@ class ListRecipesComponent extends Component {
                                         <td>{recipe.description}</td>
                                         <td>{recipe.ingredients}</td>
                                         <td>{recipe.instructions}</td>
+                                        <td><button className="btn btn-success" onClick={() => this.updateRecipeClicked(recipe.id)}>Update</button></td>
                                         <td><button className="btn btn-warning" onClick={() => this.deleteRecipeClicked(recipe.id)}>Delete</button></td>
                                     </tr>
                             )
                         }
                         </tbody>
                     </table>
+                    <div className="row">
+                        <button className="btn btn-success" onClick={this.addRecipeClicked}>Add</button>
+                    </div>
                 </div>
             </div>
         )
