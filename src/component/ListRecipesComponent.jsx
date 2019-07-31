@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import RecipeDataService from "../service/RecipeDataService";
-import Accordion from "react-bootstrap/es/Accordion";
+import Accordion from "./Accordion";
 import Card from "react-bootstrap/Card";
 
 
@@ -49,46 +49,35 @@ class ListRecipesComponent extends Component {
                 <h3>All Recipes</h3>
                 {this.state.message && <div class="alert alert-success">{this.state.message}</div>}
                 <div className="container-fluid">
-                    <Accordion defaultActiveKey="0">
-                        {
-                            this.state.recipes.map((recipe, id)=>(
-                                    <Card key = {id}>
-                                        <Accordion.Toggle as={Card.Header} eventKey="1">
 
+                    <Accordion allowMultipleOpen>
+                        {this.state.recipes.map((recipe, id)=>(
+                        <div label={recipe.name} isOpen eventKey="id">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th>Kuvaus</th>
+                                    <th>Ainesosat</th>
+                                    <th>Ohjeet</th>
+                                    <th>Poista</th>
+                                </tr>
+                                </thead>
 
-                                        <h3>    {recipe.name}</h3>
-
-
-                                </Accordion.Toggle>
-                                <Accordion.Collapse eventKey="1">
-                                <Card.Body>
-                                    <table>
-                                    <thead>
-                                    <tr>
-                            <th>Description</th>
-                            <th>Ingredients</th>
-                            <th>Instructions</th>
-                            <th>Delete</th>
-                                    </tr>
-                                    </thead>
-
-                        <tbody>
-                       {/* {
+                                <tbody>
+                                {/* {
                             this.state.recipes.map(
                                 recipe =>*/}
-                                    <tr key={recipe.id}>
-                                        <td>{recipe.description}</td>
-                                        <td>{recipe.ingredients}</td>
-                                        <td>{recipe.instructions}</td>
-                                        <td><button className="btn btn-warning" onClick={() => this.deleteRecipeClicked(recipe.id)}>Delete</button></td>
-                                    </tr>
+                                <tr key={recipe.id}>
+                                    <td>{recipe.description}</td>
+                                    <td>{recipe.ingredients}</td>
+                                    <td>{recipe.instructions}</td>
+                                    <td><button className="btn btn-warning" onClick={() => this.deleteRecipeClicked(recipe.id)}>Poista resepti</button></td>
+                                </tr>
 
 
-                        </tbody>
-                    </table>
-                                </Card.Body>
-                            </Accordion.Collapse>
-                        </Card>
+                                </tbody>
+                            </table>
+                        </div>
                             ))}
                     </Accordion>
                 </div>
