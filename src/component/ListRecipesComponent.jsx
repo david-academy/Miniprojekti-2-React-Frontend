@@ -33,7 +33,7 @@ class ListRecipesComponent extends Component {
 
     updateRecipeClicked(id) {
         console.log('update' + id)
-        this.props.history.push(`/recipes/${id}`)
+        this.props.history.push(`/reseptit/${id}`)
     }
 
     deleteRecipeClicked(id) {
@@ -47,15 +47,16 @@ class ListRecipesComponent extends Component {
     }
 
     addRecipeClicked() {
-        this.props.history.push(`/recipes/-1`)
+        this.props.history.push(`/reseptit/-1`)
     }
 
 
     render() {
+        console.log('render')
         return (
             <div className="container">
                 <h3>All Recipes</h3>
-                {this.state.message && <div class="alert alert-success">{this.state.message}</div>}
+                {this.state.message && <div className="alert alert-success">{this.state.message}</div>}
                 <div className="container">
                     <table className="table">
                         <thead>

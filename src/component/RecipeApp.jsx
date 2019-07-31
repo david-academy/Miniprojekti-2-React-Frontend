@@ -11,8 +11,8 @@ class RecipeApp extends Component {
                 <h1>Recipe Application</h1>
                 <Switch>
                     <Route path="/" exact component={ListRecipesComponent} />
-                    <Route path="/recipes" exact component={ListRecipesComponent} />
-                    <Route path="/recipes/:id" component={RecipeComponent} />
+                    <Route path="/reseptit" exact component={ListRecipesComponent} />
+                    <Route path="/reseptit/:id" component={RecipeComponent} />
 
         {/*<ListRecipesComponent/>*/}
                 </Switch>
