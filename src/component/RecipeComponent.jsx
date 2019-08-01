@@ -24,7 +24,7 @@ class RecipeComponent extends Component {
 
         console.log(this.state.id)
 
-        if (this.state.id == -1) {
+        if (this.state.id === "-1") {
             return
         }
 
@@ -59,10 +59,12 @@ class RecipeComponent extends Component {
             instructions: values.instructions,
         }
 
-        if (this.state.id === -1) {
+        if (this.state.id === "-1") {
+            console.log("Post")
             RecipeDataService.createRecipe(username, recipe)
                 .then(() => this.props.history.push('/reseptit'))
         } else {
+            console.log("put")
             RecipeDataService.updateRecipe(username, this.state.id, recipe)
                 .then(() => this.props.history.push('/reseptit'))
         }
@@ -97,19 +99,19 @@ class RecipeComponent extends Component {
                                         <Field className="form-control" type="text" name="id" disabled />
                                     </fieldset>
                                     <fieldset className="form-group">
-                                        <label>Name</label>
+                                        <label>Nimi</label>
                                         <Field className="form-control" type="text" name="name" />
                                     </fieldset>
                                     <fieldset className="form-group">
-                                        <label>Description</label>
+                                        <label>Kuvaus</label>
                                         <Field className="form-control" type="text" name="description" />
                                     </fieldset>
                                     <fieldset className="form-group">
-                                        <label>Ingredients</label>
+                                        <label>Ainesosat</label>
                                         <Field className="form-control" type="text" name="ingredients" />
                                     </fieldset>
                                     <fieldset className="form-group">
-                                        <label>Instructions</label>
+                                        <label>Ohjeet</label>
                                         <Field className="form-control" type="text" name="instructions" />
                                     </fieldset>
                                     <button className="btn btn-success" type="submit">Save</button>
