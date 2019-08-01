@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import RecipeDataService from "../service/RecipeDataService";
 import Accordion from "./Accordion";
-import Card from "react-bootstrap/Card";
 
 
 const INSTRUCTOR = 'recipesfordummies'
@@ -15,7 +14,9 @@ class ListRecipesComponent extends Component {
             message: null
         }
         this.refreshRecipes = this.refreshRecipes.bind(this)
+        this.updateRecipeClicked = this.updateRecipeClicked.bind(this)
         this.deleteRecipeClicked = this.deleteRecipeClicked.bind(this)
+        this.addRecipeClicked = this.addRecipeClicked.bind(this)
     }
 
     componentDidMount() {
@@ -31,7 +32,10 @@ class ListRecipesComponent extends Component {
                 }
             )
     }
-
+    updateRecipeClicked(id) {
+        console.log('update' + id)
+        this.props.history.push(`/reseptit/${id}`)
+    }
     deleteRecipeClicked(id) {
         RecipeDataService.deleteRecipe(INSTRUCTOR, id)
             .then(
@@ -41,6 +45,9 @@ class ListRecipesComponent extends Component {
                 }
             )
 
+    }
+    addRecipeClicked() {
+        this.props.history.push(`/reseptit/uusi`)
     }
 
     render() {
@@ -59,18 +66,18 @@ class ListRecipesComponent extends Component {
                                     <th>Kuvaus</th>
                                     <th>Ainesosat</th>
                                     <th>Ohjeet</th>
+                                    <th>Päivitä</th>
                                     <th>Poista</th>
                                 </tr>
                                 </thead>
 
                                 <tbody>
-                                {/* {
-                            this.state.recipes.map(
-                                recipe =>*/}
+
                                 <tr key={recipe.id}>
                                     <td>{recipe.description}</td>
                                     <td>{recipe.ingredients}</td>
                                     <td>{recipe.instructions}</td>
+                                    <td><button className="btn btn-success" onClick={() => this.updateRecipeClicked(recipe.id)}>Päivitä</button></td>
                                     <td><button className="btn btn-warning" onClick={() => this.deleteRecipeClicked(recipe.id)}>Poista resepti</button></td>
                                 </tr>
 
@@ -80,6 +87,9 @@ class ListRecipesComponent extends Component {
                         </div>
                             ))}
                     </Accordion>
+                    <div className="row">
+                        <button className="btn btn-success" onClick={this.addRecipeClicked}>Lisää</button>
+                    </div>
                 </div>
             </div>
         )
