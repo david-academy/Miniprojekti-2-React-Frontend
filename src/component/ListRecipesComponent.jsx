@@ -11,10 +11,10 @@ class ListRecipesComponent extends Component {
             recipes: [],
             message: null
         }
-        this.refreshRecipes = this.refreshRecipes.bind(this)
-        this.updateRecipeClicked = this.updateRecipeClicked.bind(this)
         this.deleteRecipeClicked = this.deleteRecipeClicked.bind(this)
+        this.updateRecipeClicked = this.updateRecipeClicked.bind(this)
         this.addRecipeClicked = this.addRecipeClicked.bind(this)
+        this.refreshRecipes = this.refreshRecipes.bind(this)
     }
 
     componentDidMount() {
@@ -31,11 +31,6 @@ class ListRecipesComponent extends Component {
             )
     }
 
-    updateRecipeClicked(id) {
-        console.log('update' + id)
-        this.props.history.push(`/reseptit/${id}`)
-    }
-
     deleteRecipeClicked(id) {
         RecipeDataService.deleteRecipe(INSTRUCTOR, id)
             .then(
@@ -50,6 +45,10 @@ class ListRecipesComponent extends Component {
         this.props.history.push(`/reseptit/-1`)
     }
 
+    updateRecipeClicked(id) {
+        console.log('update' + id)
+        this.props.history.push(`/reseptit/${id}`)
+    }
 
     render() {
         console.log('render')

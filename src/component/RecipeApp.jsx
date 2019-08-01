@@ -13,8 +13,6 @@ class RecipeApp extends Component {
                     <Route path="/" exact component={ListRecipesComponent} />
                     <Route path="/reseptit" exact component={ListRecipesComponent} />
                     <Route path="/reseptit/:id" component={RecipeComponent} />
-
-        {/*<ListRecipesComponent/>*/}
                 </Switch>
             </>
             </Router>

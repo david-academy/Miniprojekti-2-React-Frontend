@@ -9,11 +9,11 @@ class RecipeComponent extends Component {
         super(props)
 
         this.state = {
-            id: this.props.match.params.id,
-            name: '',
-            description: '',
-            ingredients: '',
-            instructions: ''
+                id: this.props.match.params.id,
+                name: '',
+                description: '',
+                ingredients: '',
+                instructions: ''
         }
 
         this.onSubmit = this.onSubmit.bind(this)
@@ -24,6 +24,7 @@ class RecipeComponent extends Component {
 
         console.log(this.state.id)
 
+        // eslint-disable-next-line
         if (this.state.id == -1) {
             return
         }
@@ -41,14 +42,13 @@ class RecipeComponent extends Component {
         let errors = {}
         if (!values.description) {
             errors.description = 'Enter text'
-        } else if (values.description.length < 5) {
-            errors.description = 'Enter atleast 5 characters in description'
+        } else if (values.description.length < 2) {
+            errors.description = 'Enter atleast 2 characters in description'
         }
         return errors
     }
 
     onSubmit(values) {
-       console.log(values)
         let username = INSTRUCTOR
 
         let recipe = {
@@ -61,7 +61,7 @@ class RecipeComponent extends Component {
 
         if (this.state.id === -1) {
             RecipeDataService.createRecipe(username, recipe)
-                .then(() => this.props.history.push('/reseptit'))
+                .then(() => this.props.history.push('/reseptit/'))
         } else {
             RecipeDataService.updateRecipe(username, this.state.id, recipe)
                 .then(() => this.props.history.push('/reseptit'))
@@ -80,6 +80,7 @@ class RecipeComponent extends Component {
                 <h3>Recipe</h3>
                 <div className="container">
                     <Formik
+                        // Miksi initialValues on esimerkissä eri tavalla
                         initialValues={{ id, name, description, ingredients, instructions }}
                         onSubmit={this.onSubmit}
                         validateOnChange={false}

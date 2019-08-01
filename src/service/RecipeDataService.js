@@ -19,12 +19,12 @@ class RecipeDataService {
 
     // createRecipe(name, description, ingredients, instructions, recipe) {
     createRecipe(name, recipe) {
-        return axios.post(`${RECIPE_API_URL}/reseptit/`, recipe);
+        return axios.post(`${RECIPE_API_URL}/reseptit/lisaa/`, recipe);
     }
 
     deleteRecipe(name, id) {
         //console.log('executed service')
-        return axios.delete(`${RECIPE_API_URL}reseptit/${id}`);
+        return axios.delete(`${RECIPE_API_URL}/reseptit/${id}`);
     }
 }
 
