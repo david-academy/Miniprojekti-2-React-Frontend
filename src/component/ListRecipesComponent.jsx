@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import RecipeDataService from "../service/RecipeDataService";
+import Accordion from "./Accordion";
+
 
 const INSTRUCTOR = 'recipesfordummies'
 
@@ -11,10 +13,12 @@ class ListRecipesComponent extends Component {
             recipes: [],
             message: null
         }
+
         this.deleteRecipeClicked = this.deleteRecipeClicked.bind(this)
         this.updateRecipeClicked = this.updateRecipeClicked.bind(this)
         this.addRecipeClicked = this.addRecipeClicked.bind(this)
         this.refreshRecipes = this.refreshRecipes.bind(this)
+
     }
 
     componentDidMount() {
@@ -30,7 +34,10 @@ class ListRecipesComponent extends Component {
                 }
             )
     }
-
+    updateRecipeClicked(id) {
+        console.log('update' + id)
+        this.props.history.push(`/reseptit/${id}`)
+    }
     deleteRecipeClicked(id) {
         RecipeDataService.deleteRecipe(INSTRUCTOR, id)
             .then(
@@ -50,44 +57,48 @@ class ListRecipesComponent extends Component {
         this.props.history.push(`/reseptit/${id}`)
     }
 
+
     render() {
         console.log('render')
         return (
             <div className="container">
                 <h3>All Recipes</h3>
-                {this.state.message && <div className="alert alert-success">{this.state.message}</div>}
-                <div className="container">
-                    <table className="table">
-                        <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Name</th>
-                            <th>Description</th>
-                            <th>Ingredients</th>
-                            <th>Instructions</th>
-                            <th>Update</th>
-                            <th>Delete</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {
-                            this.state.recipes.map(
-                                recipe =>
-                                    <tr key={recipe.id}>
-                                        <td>{recipe.id}</td>
-                                        <td>{recipe.name}</td>
-                                        <td>{recipe.description}</td>
-                                        <td>{recipe.ingredients}</td>
-                                        <td>{recipe.instructions}</td>
-                                        <td><button className="btn btn-success" onClick={() => this.updateRecipeClicked(recipe.id)}>Update</button></td>
-                                        <td><button className="btn btn-warning" onClick={() => this.deleteRecipeClicked(recipe.id)}>Delete</button></td>
-                                    </tr>
-                            )
-                        }
-                        </tbody>
-                    </table>
+
+                {this.state.message && <div class="alert alert-success">{this.state.message}</div>}
+                <div className="container-fluid">
+
+                    <Accordion allowMultipleOpen>
+                        {this.state.recipes.map((recipe, id)=>(
+                        <div label={recipe.name} isOpen eventKey="id">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th>Kuvaus</th>
+                                    <th>Ainesosat</th>
+                                    <th>Ohjeet</th>
+                                    <th>Päivitä</th>
+                                    <th>Poista</th>
+                                </tr>
+                                </thead>
+
+                                <tbody>
+
+                                <tr key={recipe.id}>
+                                    <td>{recipe.description}</td>
+                                    <td>{recipe.ingredients}</td>
+                                    <td>{recipe.instructions}</td>
+                                    <td><button className="btn btn-success" onClick={() => this.updateRecipeClicked(recipe.id)}>Päivitä</button></td>
+                                    <td><button className="btn btn-warning" onClick={() => this.deleteRecipeClicked(recipe.id)}>Poista resepti</button></td>
+                                </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                            ))}
+                    </Accordion>
                     <div className="row">
-                        <button className="btn btn-success" onClick={this.addRecipeClicked}>Add</button>
+                        <button className="btn btn-success" onClick={this.addRecipeClicked}>Lisää</button>
                     </div>
                 </div>
             </div>

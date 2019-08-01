@@ -24,7 +24,7 @@ class RecipeComponent extends Component {
 
         console.log(this.state.id)
 
-        // eslint-disable-next-line
+
         if (this.state.id == -1) {
             return
         }
@@ -42,8 +42,10 @@ class RecipeComponent extends Component {
         let errors = {}
         if (!values.description) {
             errors.description = 'Enter text'
+
         } else if (values.description.length < 2) {
             errors.description = 'Enter atleast 2 characters in description'
+
         }
         return errors
     }
@@ -59,9 +61,10 @@ class RecipeComponent extends Component {
             instructions: values.instructions,
         }
 
-        if (this.state.id === -1) {
+        if (this.state.id === "-1") {
             RecipeDataService.createRecipe(username, recipe)
                 .then(() => this.props.history.push('/reseptit/'))
+
         } else {
             RecipeDataService.updateRecipe(username, this.state.id, recipe)
                 .then(() => this.props.history.push('/reseptit'))
@@ -80,7 +83,6 @@ class RecipeComponent extends Component {
                 <h3>Recipe</h3>
                 <div className="container">
                     <Formik
-                        // Miksi initialValues on esimerkissä eri tavalla
                         initialValues={{ id, name, description, ingredients, instructions }}
                         onSubmit={this.onSubmit}
                         validateOnChange={false}
