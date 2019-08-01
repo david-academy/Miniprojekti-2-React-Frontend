@@ -81,6 +81,7 @@ class ListRecipesComponent extends Component {
                                     <td>{recipe.description}</td>
                                     <td>{recipe.ingredients}</td>
                                     <td>{recipe.instructions}</td>
+
                                     <td><button className="btn btn-success" onClick={() => this.updateRecipeClicked(recipe.id)}>Päivitä</button></td>
                                     <td><button className="btn btn-warning" onClick={() => this.deleteRecipeClicked(recipe.id)}>Poista resepti</button></td>
                                 </tr>

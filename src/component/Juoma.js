@@ -5,7 +5,7 @@ import Accordion from "./Accordion";
 
 const INSTRUCTOR = 'recipesfordummies'
 
-class Kana extends Component {
+class Juoma extends Component {
 
     constructor(props) {
         super(props)
@@ -68,6 +68,7 @@ class Kana extends Component {
                                         <th>Kuvaus</th>
                                         <th>Ainesosat</th>
                                         <th>Ohjeet</th>
+                                        <th>Kategoria</th>
                                         <th>Päivitä</th>
                                         <th>Poista</th>
                                     </tr>
@@ -79,6 +80,8 @@ class Kana extends Component {
                                         <td>{recipe.description}</td>
                                         <td>{recipe.ingredients}</td>
                                         <td>{recipe.instructions}</td>
+                                        <td>{recipe.category.name}</td>
+
                                         <td><button className="btn btn-success" onClick={() => this.updateRecipeClicked(recipe.id)}>Päivitä</button></td>
                                         <td><button className="btn btn-warning" onClick={() => this.deleteRecipeClicked(recipe.id)}>Poista resepti</button></td>
                                     </tr>
@@ -99,4 +102,4 @@ class Kana extends Component {
     }
 }
 
-export default Kana
+export default Juoma

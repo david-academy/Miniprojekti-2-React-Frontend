@@ -5,7 +5,7 @@ import Accordion from "./Accordion";
 
 const INSTRUCTOR = 'recipesfordummies'
 
-class Salaatti extends Component {
+class Random extends Component {
 
     constructor(props) {
         super(props)
@@ -24,7 +24,7 @@ class Salaatti extends Component {
     }
 
     refreshRecipes() {
-        RecipeDataService.retrieveAllSalaattiRecipes(INSTRUCTOR)//HARDCODED
+        RecipeDataService.retrieveAllRandomRecipes(INSTRUCTOR)//HARDCODED
             .then(
                 response => {
                     console.log(response);
@@ -55,7 +55,7 @@ class Salaatti extends Component {
     render() {
         return (
             <div className="container">
-                <h3>Salaatti reseptit</h3>
+                <h3>Random resepti</h3>
                 {this.state.message && <div className="alert alert-success">{this.state.message}</div>}
                 <div className="container-fluid">
 
@@ -68,7 +68,6 @@ class Salaatti extends Component {
                                         <th>Kuvaus</th>
                                         <th>Ainesosat</th>
                                         <th>Ohjeet</th>
-                                        <th>Kategoria</th>
                                         <th>Päivitä</th>
                                         <th>Poista</th>
                                     </tr>
@@ -80,7 +79,6 @@ class Salaatti extends Component {
                                         <td>{recipe.description}</td>
                                         <td>{recipe.ingredients}</td>
                                         <td>{recipe.instructions}</td>
-                                        <td>{recipe.category.name}</td>
 
                                         <td><button className="btn btn-success" onClick={() => this.updateRecipeClicked(recipe.id)}>Päivitä</button></td>
                                         <td><button className="btn btn-warning" onClick={() => this.deleteRecipeClicked(recipe.id)}>Poista resepti</button></td>
@@ -102,4 +100,4 @@ class Salaatti extends Component {
     }
 }
 
-export default Salaatti
+export default Random
