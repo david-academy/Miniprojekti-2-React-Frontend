@@ -28,47 +28,52 @@ export const NavigationBar = () => (
                     </Nav.Item>
                     <Nav.Item>
                         <Nav.Link>
-                            <Link to="reseptit/liha">Liha</Link>
+                            <Link to="reseptit/liha">&#129385;</Link>
                         </Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
                         <Nav.Link>
-                            <Link to="/reseptit/kala">Kala</Link>
+                            <Link to="/reseptit/kala">&#128031;</Link>
                         </Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
                     <Nav.Link>
-                        <Link to="/reseptit/kana">Kana</Link>
+                        <Link to="/reseptit/kana">&#128020;</Link>
                     </Nav.Link>
                 </Nav.Item>
                     <Nav.Item>
                     <Nav.Link>
-                        <Link to="/reseptit/kasvis">Kasvis</Link>
+                        <Link to="/reseptit/kasvis">&#129365;</Link>
                     </Nav.Link>
                 </Nav.Item>
                      <Nav.Item>
                     <Nav.Link>
-                        <Link to="/reseptit/keitto">Keitto</Link>
+                        <Link to="/reseptit/keitto">&#129379;</Link>
                     </Nav.Link>
                 </Nav.Item>
                      <Nav.Item>
                     <Nav.Link>
-                        <Link to="/reseptit/salaatti">Salaatti</Link>
+                        <Link to="/reseptit/salaatti">&#129367;</Link>
                     </Nav.Link>
                 </Nav.Item>
                      <Nav.Item>
                     <Nav.Link>
-                        <Link to="/reseptit/jalkiruoka">Jälkiruoka</Link>
+                        <Link to="/reseptit/jalkiruoka">&#127848;</Link>
                     </Nav.Link>
                 </Nav.Item>
                      <Nav.Item>
                     <Nav.Link>
-                        <Link to="/reseptit/leivonta">Leivonta</Link>
+                        <Link to="/reseptit/leivonta">&#129360;</Link>
                     </Nav.Link>
                 </Nav.Item>
                      <Nav.Item>
                     <Nav.Link>
-                        <Link to="/reseptit/juoma">Juoma</Link>
+                        <Link to="/reseptit/juoma">&#127865;</Link>
+                    </Nav.Link>
+                </Nav.Item>
+                    <Nav.Item>
+                    <Nav.Link>
+                        <Link to="/reseptit/random">&#10067;</Link>
                     </Nav.Link>
                 </Nav.Item>
 

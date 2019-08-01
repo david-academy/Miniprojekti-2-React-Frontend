@@ -25,6 +25,9 @@ class RecipeDataService {
     retrieveAllSalaattiRecipes(name) {
         return axios.get(`${RECIPE_API_URL}/haekategorialla/salaatti`);
     }
+    retrieveAllRandomRecipes(name) {
+        return axios.get(`${RECIPE_API_URL}/haerandom`);
+    }
     retrieveAllJalkiruokaRecipes(name) {
         return axios.get(`${RECIPE_API_URL}/haekategorialla/jälkiruoka`);
     }

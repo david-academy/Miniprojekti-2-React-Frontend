@@ -14,6 +14,7 @@ class RecipeComponent extends Component {
             description: '',
             ingredients: '',
             instructions: ''
+
         }
 
         this.onSubmit = this.onSubmit.bind(this)
@@ -33,16 +34,16 @@ class RecipeComponent extends Component {
                 name: response.data.name,
                 description: response.data.description,
                 ingredients: response.data.ingredients,
-                instructions: response.data.instructions
+                instructions: response.data.instructions,
             }))
     }
 
     validate(values) {
         let errors = {}
         if (!values.description) {
-            errors.description = 'Enter text'
+            errors.description = 'Syötä reseptin nimi ja kuvaus!'
         } else if (values.description.length < 5) {
-            errors.description = 'Enter atleast 5 characters in description'
+            errors.description = 'Kuvaus: Syötä vähintään viisi merkkiä'
         }
         return errors
     }
@@ -82,7 +83,7 @@ class RecipeComponent extends Component {
                 <h3>Recipe</h3>
                 <div className="container">
                     <Formik
-                        initialValues={{ id, name, description, ingredients, instructions }}
+                        initialValues={{ id, name, description, ingredients, instructions}}
                         onSubmit={this.onSubmit}
                         validateOnChange={false}
                         validateOnBlur={false}
@@ -114,7 +115,8 @@ class RecipeComponent extends Component {
                                         <label>Ohjeet</label>
                                         <Field className="form-control" type="text" name="instructions" />
                                     </fieldset>
-                                    <button className="btn btn-success" type="submit">Save</button>
+
+                                    <button className="btn btn-success" type="submit">Tallenna</button>
                                 </Form>
                             )
                         }

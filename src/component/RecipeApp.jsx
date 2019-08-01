@@ -10,9 +10,10 @@ import Jalkiruoka from "./Jalkiruoka";
 import Salaatti from "./Salaatti";
 import Keitto from "./Keitto";
 import Kasvis from "./Kasvis";
-import Liha from "./Liha";
 import Leivonta from "./Leivonta";
 import Juoma from "./Juoma";
+import Random from "./Random";
+import Liha from "./Liha";
 
 class RecipeApp extends Component {
     render() {
@@ -22,9 +23,11 @@ class RecipeApp extends Component {
                 <>
                     <Switch>
                         <Route path="/" exact component={ListRecipesComponent} />
+{/*
                         <Route path="/reseptit" exact component={ListRecipesComponent} />
-                        <Route path="/reseptit/kana"  component={Kana} />
-                        <Route path="/reseptit/liha"  component={Liha} />
+*/}
+                        <Route path="/reseptit/kana"  exact component={Kana} />
+                        <Route path="/reseptit/liha"  exact component={Liha} />
                         <Route path="/reseptit/kala"  component={Kala} />
                         <Route path="/reseptit/kasvis"  component={Kasvis} />
                         <Route path="/reseptit/keitto"  component={Keitto} />
@@ -32,6 +35,7 @@ class RecipeApp extends Component {
                         <Route path="/reseptit/jalkiruoka"  component={Jalkiruoka} />
                         <Route path="/reseptit/leivonta"  component={Leivonta} />
                         <Route path="/reseptit/juoma"  component={Juoma} />
+                        <Route path="/reseptit/random"  component={Random} />
                         <Route path="/reseptit/:id" component={RecipeComponent} />
                         <Route path="/reseptit" component={ListRecipesComponent}/>
 
