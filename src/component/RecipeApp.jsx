@@ -16,6 +16,7 @@ import Random from "./Random";
 import Liha from "./Liha";
 import Jumbo from "./Jumbo";
 
+
 class RecipeApp extends Component {
     render() {
         return (
@@ -46,6 +47,7 @@ class RecipeApp extends Component {
                     </Switch>
                 </>
             </Router>
+
         )
     }
 }
