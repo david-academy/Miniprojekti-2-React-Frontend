@@ -14,12 +14,15 @@ import Leivonta from "./Leivonta";
 import Juoma from "./Juoma";
 import Random from "./Random";
 import Liha from "./Liha";
+import Jumbo from "./Jumbo";
 
 class RecipeApp extends Component {
     render() {
         return (
             <Router>
                 <NavigationBar/>
+                <Jumbo/>
+
                 <>
                     <Switch>
                         <Route path="/" exact component={ListRecipesComponent} />

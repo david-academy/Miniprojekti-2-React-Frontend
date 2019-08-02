@@ -1,27 +1,41 @@
-import React, {Component} from "react";
-import Jumbotron from 'react-bootstrap/Jumbotron'
+import React, { Component } from 'react';
+import { Jumbotron } from 'react-bootstrap';
+import Background from './test.jpg';
 
 class Jumbo extends Component {
     render() {
-        const divStyle = {
-            color: 'blue',
-            backgroundImage: 'url(' + "http://worldkings.org/Userfiles/Upload/images/Yale.jpg" + ')',
-        };
 
         return (
-            <div>
-                <Jumbotron fluid>
-                    <h1>Maailman paras reseptihaku-appi ikinä</h1>
-                    <br/>
-                    <p>
-                        A crowd-sourced archive of recipes.
-                    </p>
+            <Jumbotron style={styles.container}>
 
+                <h1><strong>Reseptikirjasi</strong> interwebissä</h1>
+                <h5>Lue/hae/luo tai muokkaa suosikkiresepteistäsi täällä</h5>
 
-
-                </Jumbotron>
-            </div>
+            </Jumbotron>
         );
     }
 }
-export default Jumbo
+
+
+    const styles = {
+    container: {
+        backgroundSize: 'cover',
+        height: "350px",
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        color: 'white',
+        backgroundImage: `url(${Background})`,
+        borderRadius: "0px",
+        textAlign: "center",
+/*
+        display: "flex"
+*/
+
+
+}
+
+};
+
+
+
+export default Jumbo;

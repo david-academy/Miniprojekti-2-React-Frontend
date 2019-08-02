@@ -55,7 +55,7 @@ class Liha extends Component {
     render() {
         return (
             <div className="container">
-                <h3>Leivonta reseptit</h3>
+                <h3>Liha reseptit</h3>
                 {this.state.message && <div className="alert alert-success">{this.state.message}</div>}
                 <div className="container-fluid">
 
