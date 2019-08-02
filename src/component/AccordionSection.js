@@ -22,6 +22,7 @@ class AccordionSection extends Component {
                     background: isOpen ? "#FFFFFF" : "#D3D3D3",
                     border: "1px solid #D3D3D3",
                     padding: "5px 10px"
+                    
                 }}
             >
                 <div onClick={onClick} style={{ cursor: "pointer" }}>

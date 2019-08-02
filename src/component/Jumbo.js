@@ -9,7 +9,7 @@ class Jumbo extends Component {
             <Jumbotron style={styles.container}>
 
                 <h1><strong>Reseptikirjasi</strong> interwebissä</h1>
-                <h5>Lue/hae/luo tai muokkaa suosikkiresepteistäsi täällä</h5>
+                <h5>Lue, hae, luo ja muokkaa suosikkireseptejäsi täällä</h5>
 
             </Jumbotron>
         );
