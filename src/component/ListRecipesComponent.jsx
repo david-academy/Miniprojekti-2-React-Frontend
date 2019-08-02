@@ -59,11 +59,11 @@ class ListRecipesComponent extends Component {
             <div className="container">
                 <h3>Kaikki reseptit</h3>
                 {this.state.message && <div className="alert alert-success">{this.state.message}</div>}
-                <div className="container-fluid">
+                <div className="container-fluid" >
 
                     <Accordion allowMultipleOpen>
                         {this.state.recipes.map((recipe, id)=>(
-                        <div label={recipe.name} isOpen eventKey="id">
+                        <div label={recipe.name} key={recipe.id} isOpen eventKey="id">
                             <table>
                                 <thead>
                                 <tr>
